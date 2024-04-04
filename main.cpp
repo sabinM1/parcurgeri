@@ -20,7 +20,9 @@ void eroare(short o, int x) {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_RED);
     switch(o) {
         case 1: {
-            cout<<"EROARE! Numărul "<<x<<" nu aparține intervalului [0, 100000]\n\n";
+            cout<<"EROARE! Vârful "<<x<<" nu aparține intervalului [1, 100000]\n\n";
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN);
             exit(0);
         }
         case 2: {
@@ -49,7 +51,7 @@ void eroare(short o, int x) {
 }
 
 void validint(int x) {
-    if (x>=0 && x<=100000)
+    if (x>0 && x<=100000)
         return ;
     eroare(1, x);
 }
